@@ -10,14 +10,13 @@ import UIKit
 
 class MealTableViewController: UITableViewController {
 
+    //MARK: properties
+    var meals = [Meal]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        loadSampleMeals()
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,5 +90,28 @@ class MealTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func loadSampleMeals() {
+        let photo1 = UIImage(named: "meal1")
+        let photo2 = UIImage(named: "meal2")
+        let photo3 = UIImage(named: "meal3")
+        
+        print("I loaded the sample meals")
+        
+        guard let meal1 = Meal(name: "a mountain", photo: photo1, rating: 4) else {
+            fatalError("unable to instantiate meal1")
+        }
+        
+        guard let meal2 = Meal(name: "a tree", photo: photo2, rating: 5) else {
+            fatalError("unable to instantiate meal2")
+        }
+        
+        guard let meal3 = Meal(name: "a, erm, unclear", photo: photo3, rating: 3) else {
+            fatalError("unable to instantiate meal3")
+        }
+        
+        meals += [meal1, meal2, meal3]
+        
+    }
 
 }
